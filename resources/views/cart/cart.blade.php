@@ -15,55 +15,47 @@
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
-                    <tr>
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Name
-                        </th>
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Name
+                            </th>
 
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Details
-                        </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Details
+                            </th>
 
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Price
-                        </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Price
+                            </th>
 
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Quantity
-                        </th>
-                        
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Total
-                        </th>
-                        
-                        <th 
-                            scope="col" 
-                            class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Delete
-                        </th>
-                    </tr>
-                </thead>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Quantity
+                            </th>
 
-                @if (session('cartItems'))
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Total
+                            </th>
+
+                            <th scope="col"
+                                class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Delete
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @if (session('cartItems'))
                     @foreach (session('cartItems') as $key => $value)
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
-                                        <img 
-                                            class="h-10 w-10 rounded-full" 
-                                            src="{{ asset($value['image_path']) }}" 
+                                        <img class="h-10 w-10 rounded-full" src="{{ asset($value['image_path']) }}"
                                             alt="{{ $value['name'] }}">
                                     </div>
 
@@ -83,7 +75,7 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span 
+                                <span
                                     class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     $ {{ $value['price'] }}
                                 </span>
@@ -91,22 +83,22 @@
 
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <select name="quantity" id="quantity" value="{{ $value['quantity'] }}">
-                                    @for ($i = 1; $i <= 10; $i++)
-                                        <option value="{{ $i }}">
-                                            {{ $i }}
+                                    @for ($i = 1; $i <= 10; $i++) <option value="{{ $i }}">
+                                        {{ $i }}
                                         </option>
-                                    @endfor
+                                        @endfor
                                 </select>
                             </td>
-                            
+
                             <td class="px-6 py-4 whitespace-nowrap">
-                               <div class="text-sm text-gray-900">
-                                    $ {{ $value['quantity'] * $value['price'] }} 
+                                <div class="text-sm text-gray-900">
+                                    $ {{ $value['quantity'] * $value['price'] }}
                                 </div>
                             </td>
 
                             <td class="px-6 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ route('delete.from.cart', $key) }}" role="button" class="text-red-600 hover:text-red-900">Delete</a>
+                                <a href="{{ route('delete.from.cart', $key) }}" role="button"
+                                    class="text-red-600 hover:text-red-900">Delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -118,7 +110,7 @@
                             Shopping cart is empty.
                         </p>
                     </td>
-                @endif
+                    @endif
                 </table>
             </div>
         </div>
